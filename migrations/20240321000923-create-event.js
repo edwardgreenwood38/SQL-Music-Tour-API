@@ -1,5 +1,6 @@
 'use strict';
 
+const meet_greet = require('../models/meet_greet');
 const stage_events = require('../models/stage_events');
 
 /** @type {import('sequelize-cli').Migration} */
@@ -12,7 +13,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
         hasMany: set_time.event_id,
-        hasMany: stage_events.event_id
+        hasMany: stage_events.event_id,
+        hasMany: meet_greet.event_id
       },
       name: {
         type: Sequelize.STRING,

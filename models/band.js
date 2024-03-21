@@ -4,6 +4,7 @@
 const {
   Model
 } = require('sequelize');
+const meet_greet = require('./meet_greet');
 module.exports = (sequelize, DataTypes) => {
   class Band extends Model {
     /**
@@ -21,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        hasMany: set_time.band_id
+        hasMany: set_time.band_id,
+        hasMany: meet_greet.band_id
     },
     name: {
         type: DataTypes.STRING,

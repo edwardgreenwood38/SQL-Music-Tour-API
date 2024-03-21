@@ -1,4 +1,7 @@
 'use strict';
+
+const meet_greet = require('../models/meet_greet');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -7,7 +10,9 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        hasMany: set_time.band_id,
+        hasMany: meet_greet.band_id
       },
       name: {
         type: Sequelize.STRING
