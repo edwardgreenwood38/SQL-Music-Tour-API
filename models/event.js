@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  
+
   Event.init({
     event_id: {
       type: DataTypes.INTEGER,
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false
     },
-    ent_time: {
+    end_time: {
       type: DataTypes.DATE,
       allowNull: false
     }
