@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const stage_events = require('./stage_events');
 module.exports = (sequelize, DataTypes) => {
   class Stage extends Model {
     /**
@@ -13,12 +14,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  
+
   Stage.init({
     stage_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      hasMany: set_time.stage_id,
+      hasMany: stage_events.stage_id
     },
     stage_name: {
       type: DataTypes.STRING,

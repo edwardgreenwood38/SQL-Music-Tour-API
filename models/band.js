@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     band_id: { 
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        hasMany: set_time.band_id
     },
     name: {
         type: DataTypes.STRING,
