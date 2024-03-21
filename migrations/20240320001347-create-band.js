@@ -10,9 +10,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-        hasMany: set_time.band_id,
-        hasMany: meet_greet.band_id
+        type: Sequelize.INTEGER
       },
       name: {
         type: Sequelize.STRING

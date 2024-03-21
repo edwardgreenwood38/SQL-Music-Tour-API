@@ -11,10 +11,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-        hasMany: set_time.event_id,
-        hasMany: stage_events.event_id,
-        hasMany: meet_greet.event_id
+        type: Sequelize.INTEGER
       },
       name: {
         type: Sequelize.STRING,
