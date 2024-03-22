@@ -10,8 +10,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    /*
-     ...
-     */
+    await queryInterface.removeColumn('Bands', 'recommendation')
   }
 };              
