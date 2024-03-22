@@ -21,9 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     band_id: { 
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
-        hasMany: set_time.band_id,
-        hasMany: meet_greet.band_id
+        autoIncrement: true
     },
     name: {
         type: DataTypes.STRING,

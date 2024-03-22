@@ -19,9 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     stage_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
-      hasMany: set_time.stage_id,
-      hasMany: stage_events.stage_id
+      autoIncrement: true
     },
     stage_name: {
       type: DataTypes.STRING,
