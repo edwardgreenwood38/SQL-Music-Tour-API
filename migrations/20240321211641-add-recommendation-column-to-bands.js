@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('bands', 'recommendation', {
+    await queryInterface.addColumn('Bands', 'recommendation', {
         type: DataTypes.STRING
     })
   },

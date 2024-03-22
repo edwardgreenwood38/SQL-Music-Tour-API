@@ -4,6 +4,7 @@
     "password": "Amanda14!$",
     "database": "music_tour",
     "host": "127.0.0.1",
+    "port": "5433",
     "dialect": "postgres"
   },
   "test": {
