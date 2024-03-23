@@ -1,11 +1,11 @@
 // DEPENDENCIES
-const events = require('express').Router()
+const stages = require('express').Router()
 const db = require('../models')
-const { Event } = db 
+const { Stage } = db 
 
 
-// FIND ALL events
-events.get('/', async (req, res) => {
+// FIND ALL stages
+stages.get('/', async (req, res) => {
     try {
         const foundEvents = await Event.findAll({
             order: [[ 'available_start_time', 'ASC']],
@@ -17,8 +17,8 @@ events.get('/', async (req, res) => {
     }
 });
 
-// FIND A SPECIFIC event
-events.get('/:id', async (req, res) => {
+// FIND A SPECIFIC stage
+stages.get('/:id', async (req, res) => {
     try {
         const foundEvent = await Event.findOne({
             where: { band_id: req.params.id }
@@ -30,8 +30,8 @@ events.get('/:id', async (req, res) => {
 })
 
 
-// CREATE A event
-events.post('/', async (req, res) => {
+// CREATE A stage
+stages.post('/', async (req, res) => {
     try {
         const newEvent = await Event.create(req.body)
         res.status(200).json({
@@ -44,8 +44,8 @@ events.post('/', async (req, res) => {
 });
 
 
-// UPDATE A event
-events.put('/:id', async (req, res) => {
+// UPDATE A stage
+stages.put('/:id', async (req, res) => {
     try {
         const updatedEvents = await Event.update(req.body, {
             where: {
@@ -61,8 +61,8 @@ events.put('/:id', async (req, res) => {
 });
 
 
-// DELETE A event
-events.delete('/:id', async (req, res) => {
+// DELETE A stage
+stages.delete('/:id', async (req, res) => {
     try {
         const deletedEvents = await Event.destroy({
             where: {
@@ -80,4 +80,4 @@ events.delete('/:id', async (req, res) => {
 
 
 // EXPORT
-module.exports = events
+module.exports = stages
