@@ -7,11 +7,11 @@ const { Stage } = db
 // FIND ALL stages
 stages.get('/', async (req, res) => {
     try {
-        const foundEvents = await Event.findAll({
+        const foundStages = await Stage.findAll({
             order: [[ 'available_start_time', 'ASC']],
             where: { name: {[Op.like]: `%${req.query.name ? req.query.name : ''}%` }}
         })
-        res.status(200).json(foundEvents)
+        res.status(200).json(foundStages)
     } catch (error) {
         res.status(500).json(error)
     }
@@ -20,10 +20,10 @@ stages.get('/', async (req, res) => {
 // FIND A SPECIFIC stage
 stages.get('/:id', async (req, res) => {
     try {
-        const foundEvent = await Event.findOne({
-            where: { band_id: req.params.id }
+        const foundStage = await Stage.findOne({
+            where: { stage_id: req.params.id }
         })
-        res.status(200).json(foundEvent)
+        res.status(200).json(foundStage)
     } catch (error) {
         res.status(500).json(error)
     }
@@ -33,10 +33,10 @@ stages.get('/:id', async (req, res) => {
 // CREATE A stage
 stages.post('/', async (req, res) => {
     try {
-        const newEvent = await Event.create(req.body)
+        const newStage = await EventStage.create(req.body)
         res.status(200).json({
-            message: 'Successfully inserted a new event',
-            data: newEvent
+            message: 'Successfully inserted a new stage',
+            data: newStage
         })
     } catch(err) {
         res.status(500).json(err)
@@ -47,13 +47,13 @@ stages.post('/', async (req, res) => {
 // UPDATE A stage
 stages.put('/:id', async (req, res) => {
     try {
-        const updatedEvents = await Event.update(req.body, {
+        const updatedStages = await Stage.update(req.body, {
             where: {
-                event_id: req.params.id
+                stage_id: req.params.id
             }
         })
         res.status(200).json({
-            message: `Successfully updated ${updatedEvents} event(s)`
+            message: `Successfully updated ${updatedStages} stage(s)`
         })
     } catch(err) {
         res.status(500).json(err)
@@ -64,13 +64,13 @@ stages.put('/:id', async (req, res) => {
 // DELETE A stage
 stages.delete('/:id', async (req, res) => {
     try {
-        const deletedEvents = await Event.destroy({
+        const deletedStages = await Stage.destroy({
             where: {
-                event_id: req.params.id
+                stage_id: req.params.id
             }
         })
         res.status(200).json({
-            message: `Successfully deleted ${deletedEvents} event(s)`
+            message: `Successfully deleted ${deletedStages} stage(s)`
         })
     } catch(err) {
         res.status(500).json(err)
