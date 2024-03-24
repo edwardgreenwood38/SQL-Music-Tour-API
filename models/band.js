@@ -4,7 +4,7 @@
 const {
   Model
 } = require('sequelize');
-const meet_greet = require('./meet_greet');
+
 module.exports = (sequelize, DataTypes) => {
   class Band extends Model {
     /**
@@ -12,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate( {MeetGreet, SetTime} ) {
-      // meet and greet
+    static associate({ MeetGreet, SetTime }) {
+      // meet and greets
       Band.hasMany(MeetGreet, {
-        foriegnKey: "band_id",
+        foreignKey: "band_id",
         as: "meet_greets"
       })
 
